@@ -5,7 +5,7 @@ import TextFlip from "./TextFlip";
 
 export default function AppHeader() {
   return (
-    <header className="flex p-4">
+    <header className="flex p-4 fixed top-0 left-0 right-0">
       <Link
         href={`/`}
         className={`${megrim.className} flex items-center justify-center gap-1`}>
