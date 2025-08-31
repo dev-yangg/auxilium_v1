@@ -1,6 +1,6 @@
-export default function AppLogo() {
+export default function AppLogo({ className }: { className?: string }) {
   return (
-    <div className="w-6 aspect-square">
+    <div className={`w-6 aspect-square ${className ? className : ""}`}>
       <svg
         width="51"
         height="62"
