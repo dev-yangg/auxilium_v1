@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./ui/styles/globals.css";
 import { poppins, megrim } from "./ui/fonts";
-import AppHeader from "./components/shared/AppHeader";
 
 export const metadata: Metadata = {
   title: "Auxilium",
@@ -17,7 +16,6 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${poppins.variable} ${poppins.className} ${megrim.variable} font-regular text-regular antialiased`}>
-        <AppHeader />
         {children}
       </body>
     </html>

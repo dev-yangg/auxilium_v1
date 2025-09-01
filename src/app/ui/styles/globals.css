@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #ffffff;
+  --secondary: #171717;
+  --faded: #9e9e9e;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-faded: var(--faded);
+
+  --font-poppins: var(--font-poppins);
+  --font-megrim: var(--font-megrim);
+
+  --font-weight-light: 100;
+  --font-weight-regular: 300;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 500;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 900;
+
+  --text-special-headline: clamp(3rem, 12vw + 1rem, 12rem);
+  --text-headline: clamp(2.5rem, 8vw + 1rem, 8rem);
+  --text-subheadline: clamp(2rem, 6vw + 1rem, 6rem);
+  --text-title: clamp(1.45rem, 2vw + 1rem, 2rem);
+  --text-regular: clamp(0.95rem, 1vw + 1rem, 1.025rem);
+  --text-small: clamp(0.6rem, 1vw + 1rem, 0.8rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #0a0a0a;
+    --secondary: #ededed;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    background-color: var(--primary);
+    color: var(--secondary);
+  }
+
+  h1 {
+    font-size: var(--text-special-headline);
+    font-weight: var(--font-weight-extrabold);
+  }
+  h2 {
+    font-size: var(--text-headline);
+    font-weight: var(--font-weight-bold);
+  }
+  h3 {
+    font-size: var(--text-subheadline);
+    font-weight: var(--font-weight-semibold);
+  }
+  h4 {
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  svg,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.input-field-container {
+  --input-y-padding: calc(var(--spacing) * 3);
+
+  position: relative;
+
+  input {
+    color: var(--color-secondary);
+    padding-block: var(--input-y-padding);
+    caret-color: var(--secondary);
+  }
+
+  input:not(:placeholder-shown) + label {
+    font-size: var(--text-small);
+    transform: translateY(
+      calc((50% + (var(--text-small) + var(--input-y-padding))) * -1)
+    );
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-faded);
+    @apply transition-all duration-75 ease-linear;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--color-secondary);
+  -webkit-box-shadow: 0 0 1000px var(--color-primary);
+}
+
+input:-webkit-autofill::first-line {
+  font-family: var(--font-poppins);
+  font-size: var(--text-regular);
+}
