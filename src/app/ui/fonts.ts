@@ -1,7 +1,7 @@
 import { Poppins, Megrim } from "next/font/google";
 
 const poppins = Poppins({
-  weight: ["100", "300", "500", "700", "900"],
+  weight: ["100", "200", "500", "700", "900"],
   subsets: ["latin"],
   variable: "--font-poppins",
 });
